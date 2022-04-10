@@ -4,13 +4,14 @@ pipeline {
     stage('Dev-Build') {
       steps {
         git(url: 'https://github.com/TestLeafInc/WebApp.git', branch: 'master', poll: true)
-        script{
+        script {
           try{
-              bat 'StopApp.bat'
+            bat 'StopApp.bat'
           }catch(Exception e){
             echo 'There is no app running in port 9002'
           }
         }
+
         bat 'mvn install'
         bat 'StartApp.bat'
       }
