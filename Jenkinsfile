@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Dev-Build') {
       steps {
-        git(url: 'https://github.com/TestLeafInc/WebApp.git', branch: 'master', poll: true)\
+        git(url: 'https://github.com/TestLeafInc/WebApp.git', branch: 'master', poll: true)
         script{
           try{
               bat 'StopApp.bat'
